@@ -1,5 +1,7 @@
 # Laravel + Cloudflare Tunnel
 
+![Data flow](./documents/resources/data-flow.png)
+
 *Japanese description is available below / 日本語の説明は下部にあります*
 
 ## Overview
