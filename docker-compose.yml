@@ -25,6 +25,7 @@ services:
             - mysql
             - mailpit
             - redis
+            - cloudflared
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
@@ -71,6 +72,12 @@ services:
                 - ping
             retries: 3
             timeout: 5s
+    cloudflared:
+        image: cloudflare/cloudflared:latest
+        command: tunnel --no-autoupdate run --token '${CLOUDFLARE_TUNNEL_TOKEN}'
+        restart: always
+        networks:
+            - sail
 networks:
     sail:
         driver: bridge
